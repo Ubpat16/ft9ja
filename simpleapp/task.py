@@ -19,7 +19,7 @@ def run_continuously():
     return cease_continuous_run
 
 def refresh_data(request):
-    market_time = (dt.datetime.now() + timedelta(hours=2)).time().strftime('%H:%M:%S')
+    market_time = (dt.datetime.now() + timedelta(hours=3)).time().strftime('%H:%M:%S')
     info = asyncio.run(get_data())
     create_info = DjangularDB(market_watch_time=market_time, balance=info['balance'], equity=info['equity'])
     create_info.save()
